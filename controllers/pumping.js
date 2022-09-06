@@ -27,7 +27,7 @@ module.exports = {
             console.log('Deleted Pumping')
             res.redirect("/pumping");
         }catch(err){
-            console.log(err, 'pumping')
+            console.log(err)
             res.redirect("/pumping");
         }
     }
