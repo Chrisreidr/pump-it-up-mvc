@@ -5,8 +5,12 @@ const PumpingSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  flozStored:{
+    type: Date,
+    required: false
+  },
   timeFed: {
-    type: Number,
+    type: String,
     required: true,
   },
   userId: {

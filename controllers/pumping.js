@@ -2,20 +2,21 @@ const Pumping = require('../models/Pumping')
 
 module.exports = {
     getPumpingLog: async (req,res)=>{
-        console.log(req.user)
+        console.log(req.body)
         try{
             const pumpingLog = await Pumping.find({userId:req.user.id})
-            const itemsLeft = await Pumping.countDocuments({userId:req.user.id,completed: false})
-            res.render('pumping.ejs', {pumpingLog: pumpingLog, left: itemsLeft, user: req.user})
+            // const itemsLeft = await Pumping.countDocuments({userId:req.user.id,completed: false})
+            res.render('pumping.ejs', {flozCollection: pumpingLog, user: req.user})
         }catch(err){
             console.log(err)
         }
     },
     createLog: async (req, res)=>{
         try{
-            await Pumping.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            console.log(req.body);
+            await Pumping.create({flozFed: req.body.flozFed, timeFed: req.body.timeFed, userId: req.user.id})
             console.log('Pumping has been added!')
-            res.redirect('/pumping')
+            res.redirect('/flozCollection')
         }catch(err){
             console.log(err)
         }

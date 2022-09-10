@@ -8,12 +8,44 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form action="/pumping/createLog" method="POST">
+    <!-- <form action="/pumping/createLog" method="POST">
         <input type="number" name="flozFed" placeholder="Input floz drank...">
         <input type="time" name="timeFed" placeholder="Input time eaten..."> 
         <input type="submit">
-    </form>
-
+    </form> -->
+    <h1 class="title">Pump it up</h1>
+        <div class="display-containers">
+            <div class="amount-eaten-today">
+                <h2 class="display-container-labels">fl oz Eaten Today</h2>
+                    <div class="display-amount-container">
+                        <span class="display-floz-amount">0 fl oz</span>
+                    </div>
+                </div>
+            <div class="amount-stored">
+                <h2 class="display-container-labels">Total fl oz Stored</h2>
+                <div class="display-amount-container"><span class="display-floz-amount">10 fl oz</span></div>
+            </div>
+        </div>
+        <div class="milk-amount-containers">
+            <form action="/pumping/createLog" method="POST">
+                <div class="baby-ate">
+                    <h2 class="container-labels">Baby Just Ate</h2>
+                    <div class="baby-ate-container container-amounts"><input type="text" name="flozFed" placeholder="Input fl oz..." class="floz-amount ate-floz-amount"></input>
+                    <br>
+                    <input type="time" name="timeFed" placeholder="Input time..." class="floz-amount time-floz-amount"></input></div>
+                    <br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+            <form action="/pumping/">
+                <div class="amount-pumped">
+                    <h2 class="container-labels">You Just Stored</h2>
+                    <div class="amount-pumped-container container-amounts"><input type="text" name="totalStored" placeholder="Input fl oz..." class="floz-amount"></input></div>
+                    <br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>

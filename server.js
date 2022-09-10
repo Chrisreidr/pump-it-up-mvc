@@ -43,5 +43,5 @@ app.use('/', mainRoutes)
 app.use('/pumping', pumpingRoutes)
  
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log('Time to pump it up!')
 })    
