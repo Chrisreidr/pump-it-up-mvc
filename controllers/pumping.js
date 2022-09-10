@@ -14,9 +14,9 @@ module.exports = {
     createLog: async (req, res)=>{
         try{
             console.log(req.body);
-            await Pumping.create({flozFed: req.body.flozFed, timeFed: req.body.timeFed, userId: req.user.id})
+            await Pumping.create({flozFed: req.body.flozFed, timeFed: req.body.timeFed, flozStored: req.body.flozStored, userId: req.user.id})
             console.log('Pumping has been added!')
-            res.redirect('/flozCollection')
+            res.redirect('/pumping')
         }catch(err){
             console.log(err)
         }

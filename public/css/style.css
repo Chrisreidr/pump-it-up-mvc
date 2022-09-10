@@ -1,10 +1,327 @@
-h1{
-    color: red;
+/* Main page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+body {
+    font-family: 'Fascinate', cursive;
+    text-align: center;
+    font-size: 15px;
+    background: #FFF89A;
+    color: #3763b1;
 }
-.not{
-    text-decoration: underline;
+
+.toggle {
+    float: right;
+    right: 2%;
+    top: 4%;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: #FFF89A;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.toggle span {
+    position: absolute;
+    width: 70px;
+    height: 7px;
+    border-radius: 5px;
+    background: #9ADCFF;
+    transition: 0.5s;
+    right: 20%;
+    top: 45%;
+}
+
+.toggle span:nth-child(1) {
+    transform: translateY(-20px);
+    width: 49px;
+}
+
+.toggle.active span:nth-child(1) {
+    width: 70px;
+    transform: translateY(0) rotate(45deg);
+    background: #5ab6e7;
+}
+
+.toggle span:nth-child(2) {
+    transform: translateY(20px);
+    width: 49px;
+}
+
+.toggle.active span:nth-child(2) {
+    width: 70px;
+    transform: translateY(0) rotate(315deg);
+    background: #5ab6e7;
+}
+
+.toggle.active span:nth-child(3) {
+    transform: translateX(100px);
+    background: #5ab6e7;
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar {
+    position: absolute;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-evenly;
+    width: 94%;
+    top: 12%;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+/* .nav-transform {
+    transition: all 1s;
+} */
+
+.title {
+    font-size: 8em;
+    font-family: 'Fascinate Inline', cursive;
+    color: #FF8AAE;
+    margin: 20vh auto 15vh auto;
+}
+
+.container-labels, .display-container-labels {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.display-container-labels {
+    font-size: 3.5em;
+}
+
+.container-amounts, .amount-container, .pallete, .display-amount-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22vh;
+    width: 26vw;
+    border: 5px solid #9ADCFF;
+    border-radius: 5px;
+}
+
+.display-amount-container {
+    height: 30vh;
+    width: 35vw;
+}
+
+.display-containers {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10vh;
+}
+
+ .amount-container {
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.milk-amount-containers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.floz-amount, .display-floz-amount, .time-floz-amount {
+    font-size: 4em;
+    border-radius: 5px;
+    height: 18vh;
+    width: 24.25vw;
+    background: #C2DED1;
+    border: none;
+}
+
+.display-floz-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 27vh;
+    width: 33.25vw;
+    color: rgb(117,117,117);
+}
+
+.ate-floz-amount, .time-floz-amount {
+    height: 8vh;
+}
+
+.time-floz-amount {
+    font-size: 3em;
+}
+
+.baby-ate-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.display-floz-ammount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28vh;
+    width: 34.25vw;
+    font-size: 4em;
+    color: rgb(117,117,117);
+}
+
+.submit-btn, .delete-btn, .update-btn {
+    height: 5vh;
+    width: 25.5vw;
+    background: #FF8AAE;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-family: 'Fascinate', cursive;
+}
+
+.submit-btn:hover, .delete-btn:hover, .update-btn:hover {
+    background: #FFB2A6;
+    color: #9ADCFF;
+}
+
+.delete-btn, .update-btn {
+    margin-bottom: 5vh;
+    width: 10vw;
+}
+
+.milk-amount-containers {
+    margin-bottom: 15vh;
+}
+
+.top-transition {
+    height: 5vh;
+    width: 100%;
+    background: linear-gradient(#FFF89A,#9ADCFF)
+}
+
+/* Middle container */
+
+.title-feeding-schedule {
+    padding-top: 10vh;
+    font-size: 6em;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.middle-container {
+    background: #9ADCFF;
+}
+
+hr {
+    border-style: dotted none none;
+    border-width: 15px;
+    width: 10%;
+    margin: 5vh auto;
+    color: #FFF89A;
+}
+
+.display-date {
+    font-size: 3em;
+    color: #FFF89A;
+}
+
+/* Clock */
+
+.clock {
+    width: 20rem;
+    height: 20rem;
+    border: 15px solid #FF8AAE;
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+      0 0 0 4px rgba(0,0,0,0.1),
+      inset 0 0 0 3px #EFEFEF,
+      inset 0 0 10px black,
+      0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* account for the height of the clock hands */
+  }
+
+  .hand {
+    width: 50%;
+    height: 6px;
+    background: #FFF89A;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0, 3, 0.57, 1);
+  }
+
+  .hour-hand {
+    width: 4.9vw;
+    left: 3vw;
+  }
+
+/* Logs */
+
+.daily-logs {
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+}
+
+.display-feeding-border, .display-time-border {
+    width: 25vw;
+    height: 20vh;
+    border: 15px solid #FFF89A;
+    border-radius: 50%;
+    margin-bottom: 5vh;
+}
+
+.display-time-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-feeding-log, .display-time-log {
+    font-size: 3em;
+    color: rgb(117,117,117);
+}
+
+.display-log-titles {
+    font-size: 4em;
+    margin-bottom: 2.5vh;
+}
+
+/* Pallete */
+.pallete {
+    height: 20vh;
+    width: 100%;
+    border: 5px solid black;
+    background: linear-gradient(90deg,#FF8AAE,#FFB2A6,#FFF89A,#9ADCFF);
+}
+
+/* Quotes page */
+
+.list-of-quotes {
+    text-align: left;
+    line-height: 2;
+    list-style: none;
+}
+
+/* Old WIves Tales page */
+
+.myths-facts-container {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
 }

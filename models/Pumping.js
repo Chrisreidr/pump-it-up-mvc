@@ -6,8 +6,8 @@ const PumpingSchema = new mongoose.Schema({
     required: true,
   },
   flozStored:{
-    type: Date,
-    required: false
+    type: Number,
+    required: true,
   },
   timeFed: {
     type: String,
@@ -15,8 +15,12 @@ const PumpingSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  dateCreated: {
+    type: Date,
+    default: Date.now
+  },
 })
 
 module.exports = mongoose.model('Pumping', PumpingSchema)
