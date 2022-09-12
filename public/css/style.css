@@ -320,8 +320,8 @@ hr {
 
 /* Old WIves Tales page */
 
-/* .myths-facts-container {
+.myths-facts-container {
     display: flex;
     flex-direction:column;
     justify-content: center;
-} */
+}
