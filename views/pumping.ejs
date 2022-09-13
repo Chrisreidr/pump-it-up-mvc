@@ -29,7 +29,7 @@
                 <div class="display-amount-container"><span class="display-floz-amount">10 fl oz</span></div>
             </div>
         </div>
-        <div class="milk-amount-containers">
+        <section class="milk-amount-containers">
             <form action="/pumping/createLog" method="POST">
                 <div class="baby-ate">
                     <h2 class="container-labels">Baby Just Ate</h2>
@@ -44,7 +44,32 @@
                     <button type="submit" class="submit-btn">Submit</button>
                 </div>
             </form>
-        </div>
+        </section>
+        <section class="middle-container">
+            <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
+            <span class="display-date"></span>
+            <div class="clock">
+                <div class="clock-face">
+                  <div class="hand hour-hand"></div>
+                  <div class="hand minute-hand"></div>
+                  <div class="hand second-hand"></div>
+                </div>
+              </div>
+            <hr>
+            <section class="daily-logs">
+                <div class="ate-today-log">
+                    <h2 class="display-log-titles">Baby Ate</h2>
+                    <div class="display-time-border">
+                        <span class="display-feeding-log">3 fl oz</span>
+                    </div>
+                </div>
+                <div class="time-today-log">
+                    <h2 class="display-log-titles">Time</h2>
+                    <div class="display-time-border">
+                        <span class="display-time-log">4:26 pm</span>
+                    </div>
+                </div>
+            </section>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
