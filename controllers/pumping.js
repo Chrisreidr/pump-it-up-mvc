@@ -4,9 +4,9 @@ module.exports = {
     getPumpingLog: async (req,res)=>{
         console.log(req.body)
         try{
-            const pumpingLog = await Pumping.find({userId:req.user.id})
-            // const itemsLeft = await Pumping.countDocuments({userId:req.user.id,completed: false})
-            res.render('pumping.ejs', {flozCollection: pumpingLog, user: req.user})
+            const pumpingLog = await Pumping.find()
+            const totalFloz = await Pumping.countDocuments({userId:req.user.id,completed: false})
+            res.render('pumping.ejs', {pumpings: pumpingLog})
         }catch(err){
             console.log(err)
         }

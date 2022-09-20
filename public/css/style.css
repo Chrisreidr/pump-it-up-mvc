@@ -85,7 +85,11 @@ body {
     transition: all 1s;
 } */
 
+/* Main page */
+
 .title {
+    display: flex;
+    justify-content: center;
     font-size: 8em;
     font-family: 'Fascinate Inline', cursive;
     color: #FF8AAE;
@@ -158,9 +162,9 @@ body {
     font-size: 3em;
 }
 
-.baby-ate-container {
+.baby-ate {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .display-floz-ammount {
@@ -215,6 +219,11 @@ body {
     background: #9ADCFF;
 }
 
+.time-ate-container {
+    display: flex;
+    gap: 5vw;
+}
+
 hr {
     border-style: dotted none none;
     border-width: 15px;
@@ -226,6 +235,10 @@ hr {
 .display-date {
     font-size: 3em;
     color: #FFF89A;
+}
+
+.no-style {
+    list-style: none;
 }
 
 /* Clock */

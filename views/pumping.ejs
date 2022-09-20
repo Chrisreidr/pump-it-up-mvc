@@ -57,18 +57,28 @@
               </div>
             <hr>
             <section class="daily-logs">
-                <div class="ate-today-log">
-                    <h2 class="display-log-titles">Baby Ate</h2>
-                    <div class="display-time-border">
-                        <span class="display-feeding-log">3 fl oz</span>
+                <ul class="no-style">
+                    <% pumpings.forEach( el => { %>
+                    <div class="time-ate-container">
+                        <li>
+                            <div class="ate-today-log">
+                                <h2 class="display-log-titles">Baby Ate</h2>
+                                <div class="display-time-border">
+                                    <span class="display-feeding-log"><%= el.flozFed %> floz</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="time-today-log">
+                                <h2 class="display-log-titles">Time</h2>
+                                <div class="display-time-border">
+                                    <span class="display-time-log"><%= el.timeFed %></span>
+                                </div>
+                            </div>
+                        </li>
                     </div>
-                </div>
-                <div class="time-today-log">
-                    <h2 class="display-log-titles">Time</h2>
-                    <div class="display-time-border">
-                        <span class="display-time-log">4:26 pm</span>
-                    </div>
-                </div>
+                    <% }) %>
+                </ul>
             </section>
     <a href="/logout">Logout</a>
 
