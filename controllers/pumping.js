@@ -44,9 +44,10 @@ module.exports = {
     //     }
     // },
     deleteLog: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        console.log('hello')
+        console.log(req.params.id)
         try{
-            await Pumping.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            await Pumping.findById({_id:req.params.id})
             console.log('Deleted Pumping')
             res.json('Deleted It')
         }catch(err){
