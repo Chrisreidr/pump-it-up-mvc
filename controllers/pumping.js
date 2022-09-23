@@ -44,14 +44,15 @@ module.exports = {
     //     }
     // },
     deleteLog: async (req, res)=>{
-        console.log('hello')
-        console.log(req.params.id)
+        console.log(req.el)
         try{
-            await Pumping.findById({_id:req.params.id})
+            await Pumping.findOneAndDelete({_id:req.el.id})
             console.log('Deleted Pumping')
-            res.json('Deleted It')
+            console.log(req.body)
+            res.redirect("/pumping");
         }catch(err){
             console.log(err)
+            res.redirect("/pumping");
         }
     }
 }    
