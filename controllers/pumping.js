@@ -20,7 +20,7 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
     // markComplete: async (req, res)=>{
     //     try{
     //         await Pumping.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
@@ -43,14 +43,14 @@ module.exports = {
     //         console.log(err)
     //     }
     // },
-    // deleteTodo: async (req, res)=>{
-    //     console.log(req.body.todoIdFromJSFile)
-    //     try{
-    //         await Pumping.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-    //         console.log('Deleted Pumping')
-    //         res.json('Deleted It')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+    deleteLog: async (req, res)=>{
+        console.log(req.body.todoIdFromJSFile)
+        try{
+            await Pumping.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            console.log('Deleted Pumping')
+            res.json('Deleted It')
+        }catch(err){
+            console.log(err)
+        }
+    }
 }    

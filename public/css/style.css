@@ -162,7 +162,12 @@ body {
     font-size: 3em;
 }
 
-.baby-ate {
+.baby-ate-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
     display: flex;
     justify-content: center;
 }

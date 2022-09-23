@@ -99,3 +99,8 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+// var from = new Date('2014-05-18T20:00:00.000Z');
+// var to = new Date('2014-05-19T20:00:00.000Z');
+
+// db.collection.find({startTime: {$gt: from, $lt:to}});

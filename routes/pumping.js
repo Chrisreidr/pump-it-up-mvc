@@ -11,6 +11,6 @@ router.post('/createLog', pumpingController.createLog)
 
 // router.put('/markIncomplete', todosController.markIncomplete)
 
-// router.delete('/deleteTodo', todosController.deleteTodo)
+router.delete('/deleteLog', pumpingController.deleteLog)
 
 module.exports = router
