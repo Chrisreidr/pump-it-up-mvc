@@ -87,6 +87,16 @@ body {
 
 /* Main page */
 
+.spaceBetween {
+    margin-top: 10vh;
+}
+
+.loginBtn, .signupBtn {
+    padding: 10px;
+}
+
+/* Pumping page */
+
 .title {
     display: flex;
     justify-content: center;
@@ -182,7 +192,7 @@ body {
     color: rgb(117,117,117);
 }
 
-.submit-btn, .delete-btn, .update-btn {
+.submit-btn, .delete-btn, .update-btn, .loginBtn, .signupBtn {
     height: 5vh;
     width: 25.5vw;
     background: #FF8AAE;
