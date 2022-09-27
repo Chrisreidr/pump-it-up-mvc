@@ -7,9 +7,7 @@ router.get('/', ensureAuth, pumpingController.getPumpingLog)
 
 router.post('/createLog', pumpingController.createLog)
 
-// router.put('/markComplete', todosController.markComplete)
-
-// router.put('/markIncomplete', todosController.markIncomplete)
+router.put('/totalFloz', pumpingController.totalFloz)
 
 router.delete('/deleteLog/:id', pumpingController.deleteLog)
 

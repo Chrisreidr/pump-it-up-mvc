@@ -13,7 +13,6 @@ module.exports = {
     },
     createLog: async (req, res)=>{
         try{
-            console.log(req.body);
             await Pumping.create({flozFed: req.body.flozFed, timeFed: req.body.timeFed, flozStored: req.body.flozStored, userId: req.user.id})
             console.log('Pumping has been added!')
             res.redirect('/pumping')
@@ -21,38 +20,45 @@ module.exports = {
             console.log(err)
         }
     },
-    // markComplete: async (req, res)=>{
-    //     try{
-    //         await Pumping.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: true
-    //         })
-    //         console.log('Marked Complete')
-    //         res.json('Marked Complete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
-    // markIncomplete: async (req, res)=>{
-    //     try{
-    //         await Pumping.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: false
-    //         })
-    //         console.log('Marked Incomplete')
-    //         res.json('Marked Incomplete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
     deleteLog: async (req, res)=>{
         console.log(req.params.id)
         try{
             await Pumping.remove({_id:req.params.id})
             console.log('Deleted Pumping')
-            console.log(req.body)
             res.redirect("/pumping");
         }catch(err){
             console.log(err)
             res.redirect("/pumping");
         }
+    },
+    totalFloz: async (req,res)=>{
+        try {
+            await Pumping.aggregate({
+                $group: {
+                    _id: '',
+                    subida: { $sum: '$flozFed' }
+                }
+             }, {
+                $project: {
+                    _id: 0,
+                    subida: '$flozFed'
+                }
+            })
+            await Pumping.aggregate({
+                $group: {
+                    _id: '',
+                    subida: { $sum: '$flozStored' }
+                }
+             }, {
+                $project: {
+                    _id: 0,
+                    subida: '$flozStored'
+                }
+            })
+              res.redirect("/pumping");
+        } catch(err){
+        console.log(err)
+        res.redirect("/pumping");
     }
-}    
+    }
+}  
