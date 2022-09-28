@@ -33,18 +33,20 @@
                 <div class="baby-ate">
                     <h2 class="container-labels baby-just-ate">Fl oz Baby Just Ate</h2>
                     <div class="center">
-                        <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" placeholder="Input fl oz..." class="flozAmount ateFlozAmount"></input>
+                        <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" placeholder="Input fl oz..." class="flozAmount ateFlozAmount" required></input>
                         <span class="atSpan">at</span>
-                        <input type="time" name="timeFed" placeholder="Input time..." class="flozAmount timeFlozAmount"></input></div>
+                        <input type="time" name="timeFed" placeholder="Input time..." class="flozAmount timeFlozAmount" required></input></div>
                     </div>
                     <div class="amount-pumped">
                         <h2 class="container-labels">Fl oz You Just Stored</h2>
                         <div class="center">
-                            <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." class="flozAmount"></input></div>
+                            <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." class="flozAmount" required></input></div>
                         </div>
                     </div>
                     <br>
                 </div>
+                <button type="submit" class="submitBtn">Submit</button>
+            </form>
         </section>
         <section class="middle-container">
             <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
