@@ -111,6 +111,10 @@ body {
     margin-bottom: 20px;
 }
 
+.atSpan {
+    font-size: 1.5em;
+}
+
 .baby-just-ate {
     margin-top: 10vh;
 }

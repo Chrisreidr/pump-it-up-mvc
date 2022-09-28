@@ -21,6 +21,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- HERE IS THE PROBLEM -->
                 <!-- floz update form -->
             <div class="amount-stored">
                 <h2 class="display-container-labels">Total fl oz Stored</h2>
@@ -29,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <form action="/pumping/totalFloz/?_method=PUT"
+        <form action="/pumping/totalFloz/<% pumping.id %>?_method=PUT"
           method="POST" id="totalFlozStored">
           <button type="submit" class="updateBtn">Update</button>
         </form>
@@ -37,14 +38,14 @@
         <section class="milk-amount-containers">
             <form action="/pumping/createLog" method="POST">
                 <div class="baby-ate">
-                    <h2 class="container-labels baby-just-ate">Baby Just Ate</h2>
+                    <h2 class="container-labels baby-just-ate">Fl oz Baby Just Ate</h2>
                     <div class="center">
                         <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" value="0" placeholder="Input fl oz..." class="floz-amount ate-floz-amount"></input>
-                            <br>
+                        <span class="atSpan">at</span>
                         <input type="time" name="timeFed" value="null" placeholder="Input time..." class="floz-amount time-floz-amount"></input></div>
                     </div>
                     <div class="amount-pumped">
-                        <h2 class="container-labels">You Just Stored</h2>
+                        <h2 class="container-labels">Fl oz You Just Stored</h2>
                         <div class="center">
                             <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." value="0" class="floz-amount"></input></div>
                         </div>
