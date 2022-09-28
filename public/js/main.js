@@ -30,3 +30,9 @@ const funClock = () => {
 setInterval(funClock, 1000);
 
 displayDate.textContent = currentDate;
+
+// pumping.ejs page
+
+let ateFlozAmount = document.querySelector('.ateFlozAmount').value;
+
+console.log(ateFlozAmount);

@@ -7,7 +7,7 @@ router.get('/', ensureAuth, pumpingController.getPumpingLog)
 
 router.post('/createLog', pumpingController.createLog)
 
-router.put('/totalFloz/:id', pumpingController.totalFloz)
+// router.put('/totalFloz/:id', pumpingController.totalFloz)
 
 router.delete('/deleteLog/:id', pumpingController.deleteLog)
 

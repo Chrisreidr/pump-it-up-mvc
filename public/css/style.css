@@ -154,7 +154,7 @@ body {
     justify-content: space-around;
 }
 
-.floz-amount, .display-floz-amount, .time-floz-amount {
+.flozAmount, .display-floz-amount, .time-floz-amount {
     font-size: 4em;
     border-radius: 5px;
     height: 18vh;
@@ -172,11 +172,11 @@ body {
     color: rgb(117,117,117);
 }
 
-.ate-floz-amount, .time-floz-amount {
+.ateFlozAmount, .timeFlozAmount {
     height: 8vh;
 }
 
-.time-floz-amount {
+.timeFlozAmount {
     font-size: 3em;
 }
 
@@ -204,7 +204,7 @@ body {
     display: none;
 }
 
-.submit-btn, .delete-btn, .update-btn, .loginBtn, .signupBtn, .updateBtn {
+.submitBtn, .deleteBtn, .update-btn, .loginBtn, .signupBtn, .updateBtn {
     height: 5vh;
     width: 25.5vw;
     background: #FF8AAE;
@@ -214,12 +214,12 @@ body {
     font-family: 'Fascinate', cursive;
 }
 
-.submit-btn:hover, .delete-btn:hover, .update-btn:hover {
+.submitBtn:hover, .deleteBtn:hover, .update-btn:hover {
     background: #FFB2A6;
     color: #9ADCFF;
 }
 
-.delete-btn, .update-btn {
+.deleteBtn, .update-btn {
     margin-bottom: 5vh;
     width: 10vw;
 }

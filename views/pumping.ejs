@@ -21,8 +21,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- HERE IS THE PROBLEM -->
-                <!-- floz update form -->
             <div class="amount-stored">
                 <h2 class="display-container-labels">Total fl oz Stored</h2>
                 <div class="center">
@@ -30,30 +28,23 @@
                 </div>
             </div>
         </div>
-        <form action="/pumping/totalFloz/<% pumping.id %>?_method=PUT"
-          method="POST" id="totalFlozStored">
-          <button type="submit" class="updateBtn">Update</button>
-        </form>
-        <!--  -->
         <section class="milk-amount-containers">
             <form action="/pumping/createLog" method="POST">
                 <div class="baby-ate">
                     <h2 class="container-labels baby-just-ate">Fl oz Baby Just Ate</h2>
                     <div class="center">
-                        <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" value="0" placeholder="Input fl oz..." class="floz-amount ate-floz-amount"></input>
+                        <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" placeholder="Input fl oz..." class="flozAmount ateFlozAmount"></input>
                         <span class="atSpan">at</span>
-                        <input type="time" name="timeFed" value="null" placeholder="Input time..." class="floz-amount time-floz-amount"></input></div>
+                        <input type="time" name="timeFed" placeholder="Input time..." class="flozAmount timeFlozAmount"></input></div>
                     </div>
                     <div class="amount-pumped">
                         <h2 class="container-labels">Fl oz You Just Stored</h2>
                         <div class="center">
-                            <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." value="0" class="floz-amount"></input></div>
+                            <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." class="flozAmount"></input></div>
                         </div>
                     </div>
                     <br>
-                    <button type="submit" class="submit-btn">Submit</button>
                 </div>
-            </form>
         </section>
         <section class="middle-container">
             <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
@@ -89,9 +80,8 @@
                     </div>
                     <form
                     action="/pumping/deleteLog/<%= el.id %>?_method=DELETE"
-                    method="POST"
-                    class="">
-                        <button class="delete-btn" type="submit">Delete</button>
+                    method="POST">
+                        <button class="deleteBtn" type="submit">Delete</button>
                     </form>
                     <% }) %>
                 </ul>
