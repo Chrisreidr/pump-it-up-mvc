@@ -35,12 +35,12 @@ displayDate.textContent = currentDate;
 
 let ateFlozAmount = document.querySelector('.ateFlozAmount').value;
 
-menu.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    navListItems.forEach((x) => {
-        x.classList.toggle('hidden');
-        // x.classList.toggle('nav-transform');
-    })
-})
+// menu.addEventListener('click', () => {
+//     menu.classList.toggle('active');
+//     navListItems.forEach((x) => {
+//         x.classList.toggle('hidden');
+//         // x.classList.toggle('nav-transform');
+//     })
+// })
 
 console.log(ateFlozAmount);
