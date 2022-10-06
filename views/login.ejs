@@ -21,10 +21,13 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <section class="loginPage">
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" class="inputField">
+            <input type="password" name="password" placeholder="Password" class="inputField">
+            <br>
+            <input type="submit" class="submitBtn">
+        </form>
+    </section>
 </body>
 </html>

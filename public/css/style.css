@@ -95,6 +95,27 @@ body {
     padding: 10px;
 }
 
+.titleContainer {
+    margin-bottom: 15vh;
+}
+
+/* Signup Page && Login Page */
+
+.signupPage, .loginPage {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField {
+    margin-bottom: 5vh;
+    padding: 5px;
+    border: 5px solid #9ADCFF;
+    border-radius: 5px;
+}
+
 /* Pumping page */
 
 .title {
@@ -104,6 +125,10 @@ body {
     font-family: 'Fascinate Inline', cursive;
     color: #FF8AAE;
     margin: 20vh auto 15vh auto;
+}
+
+.loginTitle {
+    margin-bottom: 10px;
 }
 
 .container-labels, .display-container-labels {

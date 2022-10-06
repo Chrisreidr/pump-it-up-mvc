@@ -5,7 +5,8 @@ module.exports = {
         console.log(req.body)
         try{
             const pumpingLog = await Pumping.find()
-            const totalFloz = await Pumping.countDocuments({userId:req.user.id,completed: false})
+            // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
+            console.log(req.params.flozFed);
             res.render('pumping.ejs', {pumpings: pumpingLog})
         }catch(err){
             console.log(err)
