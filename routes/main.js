@@ -6,6 +6,8 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/', homeController.getIndex)
 router.get('/newToPumping', homeController.getNewToPumping)
+router.get('/quotes', homeController.getQuotes)
+router.get('/postpartum', homeController.getPostpartum)
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout)
