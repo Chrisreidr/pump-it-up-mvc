@@ -6,7 +6,6 @@ module.exports = {
         try{
             const pumpingLog = await Pumping.find()
             // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
-            console.log(req.params.flozFed);
             res.render('pumping.ejs', {pumpings: pumpingLog})
         }catch(err){
             console.log(err)

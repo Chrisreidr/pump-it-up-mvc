@@ -1,3 +1,5 @@
+//  pumping.ejs page
+
 // Clock
 
 const displyFlOz = document.querySelector('.display-floz-amount');
@@ -31,9 +33,7 @@ setInterval(funClock, 1000);
 
 displayDate.textContent = currentDate;
 
-// pumping.ejs page
-
-let ateFlozAmount = document.querySelector('.ateFlozAmount').value;
+// hamburgermenu / navbar
 
 menu.addEventListener('click', () => {
     menu.classList.toggle('active');
@@ -42,5 +42,3 @@ menu.addEventListener('click', () => {
         // x.classList.toggle('nav-transform');
     })
 })
-
-console.log(ateFlozAmount);
