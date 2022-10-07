@@ -14,8 +14,8 @@ module.exports = {
                     } 
                 } 
             } ] )
-            console.log(totalValue);
-            res.render('pumping.ejs', {pumpings: pumpingLog})
+            console.log(totalFlozStored[0].total); // shows correct value of 26
+            res.render('pumping.ejs', {pumpings: pumpingLog, totals: totalFlozStored[0].total})
         }catch(err){
             console.log(err)
         }
