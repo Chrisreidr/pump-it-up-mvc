@@ -6,6 +6,15 @@ module.exports = {
         try{
             const pumpingLog = await Pumping.find()
             // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
+            const totalFlozStored = await Pumping.aggregate([ { 
+                $group: { 
+                    _id: req.params.id, 
+                    total: { 
+                        $sum: "$flozStored" 
+                    } 
+                } 
+            } ] )
+            console.log(totalValue);
             res.render('pumping.ejs', {pumpings: pumpingLog})
         }catch(err){
             console.log(err)
@@ -14,7 +23,7 @@ module.exports = {
     createLog: async (req, res)=>{
         try{
             await Pumping.create({flozFed: req.body.flozFed, timeFed: req.body.timeFed, flozStored: req.body.flozStored, userId: req.user.id})
-            console.log('Pumping has been added!')
+            console.log(req.body)
             res.redirect('/pumping')
         }catch(err){
             console.log(err)
