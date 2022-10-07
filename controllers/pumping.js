@@ -14,8 +14,17 @@ module.exports = {
                     } 
                 } 
             } ] )
+            const totalFlozFed = await Pumping.aggregate([ { 
+                $group: { 
+                    _id: req.params.id, 
+                    total: { 
+                        $sum: "$flozFed" 
+                    } 
+                } 
+            } ] )
+            console.log(totalFlozFed[0].total);
             console.log(totalFlozStored[0].total); // shows correct value of 26
-            res.render('pumping.ejs', {pumpings: pumpingLog, total: totalFlozStored[0].total})
+            res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
         }catch(err){
             console.log(err)
         }
