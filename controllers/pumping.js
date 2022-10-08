@@ -22,8 +22,11 @@ module.exports = {
                     } 
                 } 
             } ] )
+    
+            // pull dates for logs
+            // find({ airedAt: { $gte: '1987-10-19', $lte: '1987-10-26' } }).
             console.log(totalFlozFed[0].total);
-            console.log(totalFlozStored[0].total); // shows correct value of 26
+            console.log(totalFlozStored[0].total); 
             res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
         }catch(err){
             console.log(err)
