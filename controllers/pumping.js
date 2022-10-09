@@ -6,7 +6,7 @@ module.exports = {
         try{
             const startDate = new Date().setHours(0)
             const endDate = new Date().setHours(23,59,59)
-            const currentDate = await Pumping.find({createdAt: {$gte: startDate, $lt: endDate}}).lean()
+            const currentDate = await Pumping.find({dateCreated: {$gte: startDate, $lt: endDate}}).lean()
             const pumpingLog = await Pumping.find()
             // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
             const totalFlozStored = await Pumping.aggregate([ { 
@@ -25,8 +25,10 @@ module.exports = {
                     } 
                 } 
             } ] )
-        
-            console.log(req.body.dateCreated);
+            // Get inputs for the day
+            console.log(currentDate[0]);
+            // Get dates from inputs created todat
+            console.log(currentDate[0].dateCreated);
             console.log(totalFlozFed[0].total);
             console.log(totalFlozStored[0].total); 
             res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
