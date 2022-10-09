@@ -4,6 +4,9 @@ module.exports = {
     getPumpingLog: async (req,res)=>{
         console.log(req.body)
         try{
+            const startDate = new Date().setHours(0)
+            const endDate = new Date().setHours(23,59,59)
+            const currentDate = await Pumping.find({createdAt: {$gte: startDate, $lt: endDate}}).lean()
             const pumpingLog = await Pumping.find()
             // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
             const totalFlozStored = await Pumping.aggregate([ { 
@@ -22,9 +25,8 @@ module.exports = {
                     } 
                 } 
             } ] )
-    
-            // pull dates for logs
-            // find({ airedAt: { $gte: '1987-10-19', $lte: '1987-10-26' } }).
+        
+            console.log(req.body.dateCreated);
             console.log(totalFlozFed[0].total);
             console.log(totalFlozStored[0].total); 
             res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
