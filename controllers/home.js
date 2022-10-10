@@ -10,8 +10,5 @@ module.exports = {
     },
     getNewToPumping: (req,res)=>{
         res.render('newToPumping.ejs')
-    },
-    getPumpingLog: (req,res)=>{
-        res.render('pumpingLog.ejs')
     }
 }

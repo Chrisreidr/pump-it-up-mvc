@@ -6,7 +6,9 @@ module.exports = {
         try{
             const startDate = new Date().setHours(0)
             const endDate = new Date().setHours(23,59,59)
-            const currentDate = await Pumping.find({dateCreated: {$gte: startDate, $lt: endDate}}).lean()
+            const inputsLoggedToday = await Pumping.find({dateCreated: {$gte: startDate, $lt: endDate}}).lean()
+            const datesLoggedToday = inputsLoggedToday[0].dateCreated.toString().slice(0, 15)
+            const today = new Date().toString().slice(0, 15)
             const pumpingLog = await Pumping.find()
             // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
             const totalFlozStored = await Pumping.aggregate([ { 
@@ -26,13 +28,28 @@ module.exports = {
                 } 
             } ] )
             // Get inputs for the day
-            console.log(currentDate[0]);
-            // Get dates from inputs created todat
-            console.log(currentDate[0].dateCreated);
+            console.log(inputsLoggedToday[0]);
+            // Get dates from inputs created today
+            console.log(inputsLoggedToday[0].dateCreated);
+            // Date extracted frominputs from today
+            console.log(datesLoggedToday);
+            // Current day
+            console.log(today);
+            // Total Floz Fed
             console.log(totalFlozFed[0].total);
+            // Total Floz Stored
             console.log(totalFlozStored[0].total); 
             res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
         }catch(err){
+            console.log(err)
+        }
+    },
+    totalPumpingLog: async (req,res)=>{
+        try {
+            console.log('Pumping Log');
+            const totalLogs = await Pumping.find()
+            res.render('totalPumpingLog.ejs', {totalLogs: totalLogs})
+        } catch(err){
             console.log(err)
         }
     },

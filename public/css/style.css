@@ -81,10 +81,6 @@ body {
     list-style: none;
 }
 
-/* .nav-transform {
-    transition: all 1s;
-} */
-
 /* Main page */
 
 .spaceBetween {
@@ -291,6 +287,19 @@ hr {
 
 .no-style {
     list-style: none;
+}
+
+/* Total logs page */
+
+.total-logs-border {
+    border: 5px solid #9ADCFF;
+    border-radius: 10px;
+
+}
+
+.total-ate-today-log {
+    height: 50%;
+    width: auto;
 }
 
 /* Clock */

@@ -5,9 +5,9 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, pumpingController.getPumpingLog)
 
-router.post('/createLog', pumpingController.createLog)
+router.get('/totalPumpingLog', pumpingController.totalPumpingLog)
 
-// router.put('/totalFloz/:id', pumpingController.totalFloz)
+router.post('/createLog', pumpingController.createLog)
 
 router.delete('/deleteLog/:id', pumpingController.deleteLog)
 
