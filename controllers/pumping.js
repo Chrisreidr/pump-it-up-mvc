@@ -39,7 +39,7 @@ module.exports = {
             console.log(totalFlozFed[0].total);
             // Total Floz Stored
             console.log(totalFlozStored[0].total); 
-            res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total})
+            res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total, datesLoggedToday: datesLoggedToday, today: today})
         }catch(err){
             console.log(err)
         }

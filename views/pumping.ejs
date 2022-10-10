@@ -72,35 +72,39 @@
                 </div>
               </div>
             <hr>
-            <section class="daily-logs">
-                <ul class="no-style">
-                    <% pumpings.forEach( el => { %>
-                    <div class="time-ate-container">
-                        <li>
-                            <div class="ate-today-log">
-                                <h2 class="display-log-titles">Baby Ate</h2>
-                                <div class="display-time-border">
-                                    <span class="display-feeding-log"><%= el.flozFed %> floz</span>
+            <!-- Why doesn't this work? -->
+            <% if(datesLoggedToday === today) { %>
+                <section class="daily-logs">
+                    <ul class="no-style">
+                        <% pumpings.forEach( el => { %>
+                        <div class="time-ate-container">
+                            <li>
+                                <div class="ate-today-log">
+                                    <h2 class="display-log-titles">Baby Ate</h2>
+                                    <div class="display-time-border">
+                                        <span class="display-feeding-log"><%= el.flozFed %> floz</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="time-today-log">
-                                <h2 class="display-log-titles">Time</h2>
-                                <div class="display-time-border">
-                                    <span class="display-time-log"><%= el.timeFed %></span>
+                            </li>
+                            <li>
+                                <div class="time-today-log">
+                                    <h2 class="display-log-titles">Time</h2>
+                                    <div class="display-time-border">
+                                        <span class="display-time-log"><%= el.timeFed %></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </div>
-                    <form
-                    action="/pumping/deleteLog/<%= el.id %>?_method=DELETE"
-                    method="POST">
-                        <button class="deleteBtn" type="submit">Delete</button>
-                    </form>
-                    <% }) %>
-                </ul>
-            </section>
+                            </li>
+                        </div>
+                        <form
+                        action="/pumping/deleteLog/<%= el.id %>?_method=DELETE"
+                        method="POST">
+                            <button class="deleteBtn" type="submit">Delete</button>
+                        </form>
+                        <% }) %>
+                        <% } %>
+                    </ul>
+                </section>
+            </div>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
