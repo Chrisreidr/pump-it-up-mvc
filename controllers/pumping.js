@@ -9,8 +9,34 @@ module.exports = {
             const inputsLoggedToday = await Pumping.find({dateCreated: {$gte: startDate, $lt: endDate}}).lean()
             const datesLoggedToday = inputsLoggedToday[0].dateCreated.toString().slice(0, 15)
             const today = new Date().toString().slice(0, 15)
+            const flozFedToday = inputsLoggedToday.map(x => x.flozFed).reduce((a,b) => a + b, 0).toString()
+            const flozStoredToday = inputsLoggedToday.map(x => x.flozStored).reduce((a,b) => a + b, 0).toString()
             const pumpingLog = await Pumping.find()
-            // const pumpingsToday = await Pumping.find({userId: req.params.id, dateCreated: {$gt: currentTimestamp - 86400000 }})
+            
+            console.log(flozFedToday);
+            console.log(flozStoredToday); 
+            // Get inputs for the day
+            // console.log(inputsLoggedToday);
+            // Get dates from inputs created today
+            console.log(inputsLoggedToday[0].dateCreated);
+            // Date extracted frominputs from today
+            console.log(datesLoggedToday);
+            // Current day
+            console.log(today);
+            // Total Floz Fed
+            // console.log(flozFedToday[0].total);
+            // Total Floz Stored
+            // console.log(flozStoredToday[0].total); 
+            res.render('pumping.ejs', {pumpings: pumpingLog, datesLoggedToday: datesLoggedToday, today: today, inputsLoggedToday: inputsLoggedToday, flozFedToday: flozFedToday, flozStoredToday: flozStoredToday})
+            // , flozStoredToday: flozStoredToday[0].total, flozFedToday: flozFedToday[0].total
+        }catch(err){
+            console.log(err)
+        }
+    },
+    totalPumpingLog: async (req,res)=>{
+        try {
+            console.log('Pumping Log');
+            const totalLogs = await Pumping.find()
             const totalFlozStored = await Pumping.aggregate([ { 
                 $group: { 
                     _id: req.params.id, 
@@ -27,28 +53,9 @@ module.exports = {
                     } 
                 } 
             } ] )
-            // Get inputs for the day
-            console.log(inputsLoggedToday[0]);
-            // Get dates from inputs created today
-            console.log(inputsLoggedToday[0].dateCreated);
-            // Date extracted frominputs from today
-            console.log(datesLoggedToday);
-            // Current day
-            console.log(today);
-            // Total Floz Fed
-            console.log(totalFlozFed[0].total);
-            // Total Floz Stored
-            console.log(totalFlozStored[0].total); 
-            res.render('pumping.ejs', {pumpings: pumpingLog, totalStored: totalFlozStored[0].total, totalFed: totalFlozFed[0].total, datesLoggedToday: datesLoggedToday, today: today})
-        }catch(err){
-            console.log(err)
-        }
-    },
-    totalPumpingLog: async (req,res)=>{
-        try {
-            console.log('Pumping Log');
-            const totalLogs = await Pumping.find()
-            res.render('totalPumpingLog.ejs', {totalLogs: totalLogs})
+            // const dateLogs = await Pumping.find({ dateCreated: req.body.dateCreated})
+            // console.log(dateLogs);
+            res.render('totalPumpingLog.ejs', {totalLogs: totalLogs, totalFlozStored: totalFlozStored[0].total, totalFlozFed: totalFlozFed[0].total})
         } catch(err){
             console.log(err)
         }

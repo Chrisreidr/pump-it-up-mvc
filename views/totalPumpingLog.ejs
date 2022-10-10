@@ -24,6 +24,24 @@
             <a href="/postpartum"><li class="nav-list hidden">Postpartum facts</li></a>
         </ul>
     <h1 class="title">Pumping Log</h1>
+    <section>
+        <div class="display-containers">
+            <div class="amount-eaten-today">
+                <h2 class="display-container-labels">Total fl oz Eaten</h2>
+                    <div class="center">
+                        <div class="display-amount-container">
+                            <span class="display-floz-amount"><%= totalFlozFed %> fl oz</span>
+                        </div>
+                    </div>
+                </div>
+            <div class="amount-stored">
+                <h2 class="display-container-labels">Total fl oz Stored</h2>
+                <div class="center">
+                    <div class="display-amount-container"><span class="display-floz-amount"><%= totalFlozStored %> fl oz</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="daily-logs">
         <ul class="no-style">
             <% totalLogs.forEach( el => { %>
@@ -60,6 +78,6 @@
             <% }) %>
         </ul>
     </section>
-    <script src="js/main.js"></script>
+    <script src="/js/navbar.js"></script>
 </body>
 </html>
