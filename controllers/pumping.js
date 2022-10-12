@@ -7,7 +7,7 @@ module.exports = {
             const startDate = new Date().setHours(0)
             const endDate = new Date().setHours(23,59,59)
             const inputsLoggedToday = await Pumping.find({dateCreated: {$gte: startDate, $lt: endDate}}).lean()
-            const datesLoggedToday = inputsLoggedToday[0].dateCreated.toString().slice(0, 15)
+            const datesLoggedToday = inputsLoggedToday[0]?.dateCreated.toString().slice(0, 15)
             const today = new Date().toString().slice(0, 15)
             const flozFedToday = inputsLoggedToday.map(x => x.flozFed).reduce((a,b) => a + b, 0).toString()
             const flozStoredToday = inputsLoggedToday.map(x => x.flozStored).reduce((a,b) => a + b, 0).toString()
@@ -18,7 +18,6 @@ module.exports = {
             // Get inputs for the day
             // console.log(inputsLoggedToday);
             // Get dates from inputs created today
-            console.log(inputsLoggedToday[0].dateCreated);
             // Date extracted frominputs from today
             console.log(datesLoggedToday);
             // Current day
