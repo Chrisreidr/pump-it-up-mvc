@@ -81,6 +81,15 @@ body {
     list-style: none;
 }
 
+/* New to pumping page */
+
+.lets-talk-pumping-paragraph {
+    width: 80%;
+    font-size: 2rem;
+    text-align: left;
+    line-height: 2;
+}
+
 /* Main page */
 
 .spaceBetween {
