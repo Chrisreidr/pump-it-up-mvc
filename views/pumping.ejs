@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,105 +11,126 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <section>
         <nav class="toggle">
             <!-- three hamburger menu lines -->
-            <span></span> 
+            <span></span>
             <span></span>
             <span></span>
         </nav>
         <ul class="navbar">
-            <a href="/pumping/totalPumpingLog"><li class="nav-list hidden">Pumping Log</li></a>
-            <a href="/quotes"><li class="nav-list hidden">Motivational Quotes</li></a>
-            <a href="/postpartum"><li class="nav-list hidden">Postpartum facts</li></a>
+            <a href="/pumping/totalPumpingLog">
+                <li class="nav-list hidden">Pumping Log</li>
+            </a>
+            <a href="/quotes">
+                <li class="nav-list hidden">Motivational Quotes</li>
+            </a>
+            <a href="/postpartum">
+                <li class="nav-list hidden">Postpartum facts</li>
+            </a>
         </ul>
     </section>
     <h1 class="title">Pump it up</h1>
-        <div class="display-containers">
-            <div class="amount-eaten-today">
-                <h2 class="display-container-labels">fl oz Eaten Today</h2>
-                    <div class="center">
-                        <div class="display-amount-container">
-                            <span class="display-floz-amount"><%= flozFedToday %> fl oz</span>
-                        </div>
-                    </div>
-                </div>
-            <div class="amount-stored">
-                <h2 class="display-container-labels">fl oz Stored Today</h2>
-                <div class="center">
-                    <div class="display-amount-container"><span class="display-floz-amount"><%= flozStoredToday %> fl oz</span></div>
+    <div class="display-containers">
+        <div class="amount-eaten-today">
+            <h2 class="display-container-labels">fl oz Eaten Today</h2>
+            <div class="center">
+                <div class="display-amount-container">
+                    <span class="display-floz-amount">
+                        <%= flozFedToday %> fl oz
+                    </span>
                 </div>
             </div>
         </div>
-        <section class="milk-amount-containers">
-            <form action="/pumping/createLog" method="POST">
-                <div class="baby-ate">
-                    <h2 class="container-labels baby-just-ate">Fl oz Baby Just Ate</h2>
-                    <div class="center">
-                        <div class="baby-ate-container container-amounts"><input type="number" name="flozFed" placeholder="Input fl oz..." class="flozAmount ateFlozAmount" required></input>
-                        <span class="atSpan">at</span>
-                        <input type="time" name="timeFed" placeholder="Input time..." class="flozAmount timeFlozAmount" required></input></div>
-                    </div>
-                    <div class="amount-pumped">
-                        <h2 class="container-labels">Fl oz You Just Stored</h2>
-                        <div class="center">
-                            <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored" placeholder="Input fl oz..." class="flozAmount" required></input></div>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <button type="submit" class="submitBtn">Submit</button>
-            </form>
-        </section>
-        <section class="middle-container">
-            <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
-            <span class="display-date"></span>
-            <div class="clock">
-                <div class="clock-face">
-                  <div class="hand hour-hand"></div>
-                  <div class="hand minute-hand"></div>
-                  <div class="hand second-hand"></div>
-                </div>
-              </div>
-            <hr>
-            <!-- Why doesn't this work? -->
-                <section class="daily-logs">
-                    <ul class="no-style">
-                        <% inputsLoggedToday.forEach( el => { %>
-                        <div class="time-ate-container"><server class="js"></server>
-                            <li>
-                                <div class="ate-today-log">
-                                    <h2 class="display-log-titles">Baby Ate</h2>
-                                    <div class="display-time-border">
-                                        <span class="display-feeding-log"><%= el.flozFed %> floz</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="time-today-log">
-                                    <h2 class="display-log-titles">Time</h2>
-                                    <div class="display-time-border">
-                                        <span class="display-time-log"><%= el.timeFed %></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                        <form
-                        action="/pumping/deleteLog/<%= el.id %>?_method=DELETE"
-                        method="POST">
-                            <button class="deleteBtn" type="submit">Delete</button>
-                        </form>
-                        <% }) %>
-                    </ul>
-                </section>
+        <div class="amount-stored">
+            <h2 class="display-container-labels">fl oz Stored Today</h2>
+            <div class="center">
+                <div class="display-amount-container"><span class="display-floz-amount">
+                        <%= flozStoredToday %> fl oz
+                    </span></div>
             </div>
-    <a href="/logout">Logout</a>
-
-    <script src="js/clock.js"></script>
-    <script src="js/navbar.js"></script>
+        </div>
+    </div>
+    <section class="milk-amount-containers">
+        <form action="/pumping/createLog" method="POST">
+            <div class="baby-ate">
+                <h2 class="container-labels baby-just-ate">Fl oz Baby Just Ate</h2>
+                <div class="center">
+                    <div class="baby-ate-container container-amounts"><input type="number" name="flozFed"
+                            placeholder="Input fl oz..." class="flozAmount ateFlozAmount" required></input>
+                        <span class="atSpan">at</span>
+                        <input type="time" name="timeFed" placeholder="Input time..." class="flozAmount timeFlozAmount"
+                            required></input>
+                    </div>
+                </div>
+                <div class="amount-pumped">
+                    <h2 class="container-labels">Fl oz You Just Stored</h2>
+                    <div class="center">
+                        <div class="amount-pumped-container container-amounts"><input type="number" name="flozStored"
+                                placeholder="Input fl oz..." class="flozAmount" required></input></div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <button type="submit" class="submitBtn">Submit</button>
+        </form>
+    </section>
+    <section class="middle-container">
+        <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
+        <span class="display-date"></span>
+        <div class="clock">
+            <div class="clock-face">
+                <div class="hand hour-hand"></div>
+                <div class="hand minute-hand"></div>
+                <div class="hand second-hand"></div>
+            </div>
+        </div>
+        <hr>
+        <!-- Why doesn't this work? -->
+        <section class="daily-logs">
+            <ul class="no-style">
+                <% inputsLoggedToday.forEach( el=> { %>
+                    <div class="time-ate-container">
+                        <server class="js"></server>
+                        <li>
+                            <div class="ate-today-log">
+                                <h2 class="display-log-titles">Baby Ate</h2>
+                                <div class="display-time-border">
+                                    <span class="display-feeding-log">
+                                        <%= el.flozFed %> floz
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="time-today-log">
+                                <h2 class="display-log-titles">Time</h2>
+                                <div class="display-time-border">
+                                    <span class="display-time-log">
+                                        <%= el.timeFed %>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <form action="/pumping/deleteLog/<%= el.id %>?_method=DELETE" method="POST">
+                        <button class="deleteBtn" type="submit">Delete</button>
+                    </form>
+                    <% }) %>
+            </ul>
+        </section>
+        <div class="center">
+            <a href="/logout" class="logoutBtn">Logout</a>
+        </div>
+        </div>
+        <script src="js/clock.js"></script>
+        <script src="js/navbar.js"></script>
 </body>
+
 </html>

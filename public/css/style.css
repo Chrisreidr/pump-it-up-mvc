@@ -225,7 +225,7 @@ body {
     display: none;
 }
 
-.submitBtn, .deleteBtn, .update-btn, .loginBtn, .signupBtn, .updateBtn {
+.submitBtn, .deleteBtn, .update-btn, .loginBtn, .signupBtn, .updateBtn, .logoutBtn {
     height: 5vh;
     width: 25.5vw;
     background: #FF8AAE;
@@ -287,6 +287,10 @@ hr {
 
 .no-style {
     list-style: none;
+}
+
+.logoutBtn {
+    margin-bottom: 5vh;
 }
 
 /* Total logs page */
