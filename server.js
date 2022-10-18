@@ -12,7 +12,7 @@ const mainRoutes = require('./routes/main')
 // const todoRoutes = require('./routes/todos')
 const pumpingRoutes = require('./routes/pumping')
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({ path: './config/.env' })
 
 // Passport config
 require('./config/passport')(passport)
@@ -27,23 +27,23 @@ app.use(methodOverride("_method"));
 app.use(logger('dev'))
 // Sessions
 app.use(
-    session({
-      secret: 'keyboard cat',
-      resave: false,
-      saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    })
-  )
-  
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+)
+
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-  
+
 app.use('/', mainRoutes)
 app.use('/pumping', pumpingRoutes)
- 
-app.listen(process.env.PORT, ()=>{
-    console.log('Time to pump it up!')
-})    
+
+app.listen(process.env.PORT, () => {
+  console.log('Time to pump it up! (on localhost:9000)')
+})

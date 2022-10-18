@@ -387,7 +387,8 @@ hr {
 /* Quotes page */
 
 .list-of-quotes {
-    text-align: left;
+    width: 80%;
+    font-size: 2rem;
     line-height: 2;
     list-style: none;
 }
