@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-     <!-- Favicon -->
-     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <section class="loginPage">
-        <form action="/login" method="POST">
-            <input type="email" name="email" placeholder="Email" class="inputField">
-            <input type="password" name="password" placeholder="Password" class="inputField">
-            <br>
-            <input type="submit" class="submitBtn">
-        </form>
+    <section>
+        <nav class="toggle">
+            <!-- three hamburger menu lines -->
+            <span></span>
+            <span></span>
+            <span></span>
+        </nav>
+        <ul class="navbar">
+            <a href="/">
+                <li class="nav-list hidden">Main Page</li>
+            </a>
+        </ul>
     </section>
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el=> { %>
+            <div class="alert alert-danger">
+                <%= el.msg %>
+            </div>
+            <% }) %>
+                <% } %>
+                    <% if (locals.messages.info) { %>
+                        <% messages.info.forEach( el=> { %>
+                            <div class="alert alert-danger">
+                                <%= el.msg %>
+                            </div>
+                            <% }) %>
+                                <% } %>
+                                    <section class="loginPage">
+                                        <form action="/login" method="POST">
+                                            <input type="email" name="email" placeholder="Email" class="inputField">
+                                            <input type="password" name="password" placeholder="Password"
+                                                class="inputField">
+                                            <br>
+                                            <input type="submit" class="submitBtn">
+                                        </form>
+                                    </section>
+                                    <script src="js/navbar.js"></script>
 </body>
+
 </html>
