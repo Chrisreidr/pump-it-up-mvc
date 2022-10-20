@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,77 +11,102 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <section>
         <nav class="toggle">
             <!-- three hamburger menu lines -->
-            <span></span> 
+            <span></span>
             <span></span>
             <span></span>
         </nav>
         <ul class="navbar">
-            <a href="/pumping"><li class="nav-list hidden">Home</li></a>
-            <a href="/quotes"><li class="nav-list hidden">Motivational Quotes</li></a>
-            <a href="/postpartum"><li class="nav-list hidden">Postpartum facts</li></a>
+            <a href="/pumping">
+                <li class="nav-list hidden">Home</li>
+            </a>
+            <a href="/quotes">
+                <li class="nav-list hidden">Motivational Quotes</li>
+            </a>
+            <a href="/postpartum">
+                <li class="nav-list hidden">Postpartum facts</li>
+            </a>
         </ul>
-    <h1 class="title">Pumping Log</h1>
-    <section>
-        <div class="display-containers">
-            <div class="amount-eaten-today">
-                <h2 class="display-container-labels">Total fl oz Eaten</h2>
+        <h1 class="title">Pumping Log</h1>
+        <section>
+            <div class="display-containers">
+                <div class="amount-eaten-today">
+                    <h2 class="display-container-labels">Total fl oz Eaten</h2>
                     <div class="center">
                         <div class="display-amount-container">
-                            <span class="display-floz-amount"><%= totalFlozFed %> fl oz</span>
+                            <span class="display-floz-amount">
+                                <%= totalFlozFed %> fl oz
+                            </span>
                         </div>
                     </div>
                 </div>
-            <div class="amount-stored">
-                <h2 class="display-container-labels">Total fl oz Stored</h2>
-                <div class="center">
-                    <div class="display-amount-container"><span class="display-floz-amount"><%= totalFlozStored %> fl oz</span></div>
+                <div class="amount-stored">
+                    <h2 class="display-container-labels">Total fl oz Stored</h2>
+                    <div class="center">
+                        <div class="display-amount-container"><span class="display-floz-amount">
+                                <%= totalFlozStored %> fl oz
+                            </span></div>
+                    </div>
                 </div>
             </div>
+        </section>
+        <div>
+            <h3 class="display-container-labels">Pick date to view logs</h3>
+            <input type="date" name="dateLogged" class="dateValue" />
+            <br>
+            <button type="submit" value="date" class="dateSubmitBtn">Submit</button>
+            <span class="dateDisplay"></span>
         </div>
-    </section>
-    <section class="daily-logs">
-        <ul class="no-style">
-            <% totalLogs.forEach( el => { %>
-            <div class="date-container">
-                <li>
-                    <h2>Date Logged</h2>
-                    <span class="date-logged"><%= el.dateCreated.toString().slice(0, 15) %></span>
-                </li>
-            </div>    
-            <div class="time-ate-container">
-                <li>
-                    <div class="ate-today-log">
-                        <h2 class="display-log-titles">Baby Ate</h2>
-                        <div class="display-time-border">
-                            <span class="display-feeding-log"><%= el.flozFed %> floz</span>
-                        </div>
+        <section class="daily-logs">
+            <ul class="no-style">
+                <% totalLogs.forEach( el=> { %>
+                    <div class="date-container">
+                        <li>
+                            <h2>Date Logged</h2>
+                            <span class="date-logged">
+                                <%= el.dateCreated.toString().slice(0, 15) %>
+                            </span>
+                        </li>
                     </div>
-                </li>
-                <li>
-                    <div class="time-today-log">
-                        <h2 class="display-log-titles">Time</h2>
-                        <div class="display-time-border">
-                            <span class="display-time-log"><%= el.timeFed %></span>
-                        </div>
+                    <div class="time-ate-container">
+                        <li>
+                            <div class="ate-today-log">
+                                <h2 class="display-log-titles">Baby Ate</h2>
+                                <div class="display-time-border">
+                                    <span class="display-feeding-log">
+                                        <%= el.flozFed %> floz
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="time-today-log">
+                                <h2 class="display-log-titles">Time</h2>
+                                <div class="display-time-border">
+                                    <span class="display-time-log">
+                                        <%= el.timeFed %>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
                     </div>
-                </li>
-            </div>
-            <form
-            action="/pumping/deleteLog/<%= el.id %>?_method=DELETE"
-            method="POST">
-                <button class="deleteBtn" type="submit">Delete</button>
-            </form>
-            <hr>
-            <% }) %>
-        </ul>
-    </section>
-    <script src="/js/navbar.js"></script>
+                    <form action="/pumping/deleteLog/<%= el.id %>?_method=DELETE" method="POST">
+                        <button class="deleteBtn" type="submit">Delete</button>
+                    </form>
+                    <hr>
+                    <% }) %>
+            </ul>
+        </section>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/date.js"></script>
 </body>
+
 </html>

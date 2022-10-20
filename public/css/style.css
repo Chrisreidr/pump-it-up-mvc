@@ -104,7 +104,7 @@ body {
     margin-bottom: 15vh;
 }
 
-/* Signup Page && Login Page */
+/* Signup Page & Login Page */
 
 .signupPage, .loginPage {
     height: 100vh;
@@ -234,7 +234,7 @@ body {
     display: none;
 }
 
-.submitBtn, .deleteBtn, .update-btn, .loginBtn, .signupBtn, .updateBtn, .logoutBtn {
+.submitBtn, .dateSubmitBtn, .deleteBtn, .update-btn, .loginBtn, .signupBtn, .updateBtn, .logoutBtn, .dateValue {
     height: 5vh;
     width: 25.5vw;
     background: #FF8AAE;
@@ -243,6 +243,19 @@ body {
     font-size: 1.5em;
     font-family: 'Fascinate', cursive;
 }
+
+/* Total pumping log page */
+
+.dateValue {
+    background: #9ADCFF;
+    color: rgb(117,117,117);
+}
+
+.dateValue, .dateSubmitBtn {
+    margin-bottom: 5vh;
+}
+
+/* Total pumping log page */
 
 .submitBtn:hover, .deleteBtn:hover, .update-btn:hover {
     background: #FFB2A6;
